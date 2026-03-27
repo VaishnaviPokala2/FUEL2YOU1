@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Receipt</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="card">
+<h2>Receipt</h2>
+
+<p>Fuel: {{order[2]}}</p>
+<p>Quantity: {{order[3]}}</p>
+<p>Total: {{order[5]}}</p>
+<p>Status: {{order[8]}}</p>
+
+{% if order[9] == 1 %}
+<p style="color:red;">🚨 Emergency Order</p>
+{% endif %}
+</div>
+
+</body>
+</html>

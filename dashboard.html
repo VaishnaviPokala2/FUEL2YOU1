@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dashboard</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<h2>Order Fuel</h2>
+
+<form method="POST">
+Fuel:
+<select name="fuel">
+<option>Petrol</option>
+<option>Diesel</option>
+</select>
+
+Quantity:
+<input type="number" name="quantity">
+
+Address:
+<input type="text" id="address" name="address">
+
+Payment:
+<select name="payment">
+<option>UPI</option>
+<option>Card</option>
+<option>COD</option>
+</select>
+
+<button>Order</button>
+</form>
+
+<button onclick="getLocation()">📍 Use My Location</button>
+
+<p id="loc"></p>
+
+<script>
+function getLocation(){
+navigator.geolocation.getCurrentPosition(function(pos){
+document.getElementById("loc").innerHTML =
+pos.coords.latitude + "," + pos.coords.longitude;
+
+document.getElementById("address").value =
+pos.coords.latitude + "," + pos.coords.longitude;
+});
+}
+</script>
+
+<hr>
+
+<h3>🚨 Emergency Request</h3>
+
+<form method="POST">
+<input type="hidden" name="fuel" value="Petrol">
+<input type="hidden" name="quantity" value="5">
+<input type="hidden" name="payment" value="COD">
+<input type="hidden" name="emergency" value="1">
+
+Address:
+<input type="text" name="address">
+
+<button class="emergency-btn">Emergency Fuel</button>
+</form>
+
+<div class="card">
+<p>Petrol Price: {{petrol}}</p>
+<p>Diesel Price: {{diesel}}</p>
+</div>
+
+</body>
+</html>

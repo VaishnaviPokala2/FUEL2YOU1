@@ -1,0 +1,14 @@
+<h2>Agent Panel</h2>
+
+{% for o in orders %}
+<form method="POST">
+Order {{o[0]}} - {{o[8]}}
+<input type="hidden" name="order_id" value="{{o[0]}}">
+<select name="status">
+<option>Accepted</option>
+<option>Out for Delivery</option>
+<option>Delivered</option>
+</select>
+<button>Update</button>
+</form>
+{% endfor %}

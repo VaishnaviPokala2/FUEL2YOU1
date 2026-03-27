@@ -1,0 +1,12 @@
+<h2>Admin Panel</h2>
+
+<form method="POST">
+Petrol Price: <input name="petrol"><br>
+Diesel Price: <input name="diesel"><br>
+<button>Update</button>
+</form>
+
+<h3>Orders</h3>
+{% for o in orders %}
+<p>{{o}}</p>
+{% endfor %}

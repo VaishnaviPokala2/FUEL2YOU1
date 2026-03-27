@@ -1,0 +1,13 @@
+<h2>Live Tracking</h2>
+
+<button onclick="track()">Start Tracking</button>
+<p id="t"></p>
+
+<script>
+function track(){
+navigator.geolocation.watchPosition(function(pos){
+document.getElementById("t").innerHTML =
+pos.coords.latitude + "," + pos.coords.longitude;
+});
+}
+</script>
